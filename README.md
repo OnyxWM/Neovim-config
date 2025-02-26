@@ -1,5 +1,7 @@
-###Neovim Config
+### Neovim Config
 
-```git clone https://github.com/OnyxWM/Neovim-config```
+```
+git clone https://github.com/OnyxWM/Neovim-config
+```
 
 
