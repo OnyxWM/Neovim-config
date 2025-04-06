@@ -9,7 +9,7 @@ return {
     config = function()
         -- Explicit language parsers to install
         local parsers_to_install = {
-            "php", "blade", "html", "lua", 
+            "php", "blade", "html", "lua",
             "javascript", "typescript", "css"
         }
 
@@ -17,26 +17,21 @@ return {
         require("nvim-treesitter.configs").setup({
             -- Ensure these parsers are installed
             ensure_installed = parsers_to_install,
-            
-            -- Enable syntax highlighting
             highlight = {
                 enable = true,
                 -- Use additional regex highlighting for these filetypes
-                additional_vim_regex_highlighting = { 
-                    "php", "blade", "html" 
+                additional_vim_regex_highlighting = {
+                    "php", "blade", "html"
                 }
             },
-            
             -- Enable indentation
             indent = { enable = true },
-            
             -- Context-aware commenting
             context_commentstring = {
                 enable = true,
                 enable_autocmd = false
             }
         })
-
         -- Manual parser installation
         local parsers = require("nvim-treesitter.parsers")
         for _, parser in ipairs(parsers_to_install) do
@@ -44,7 +39,6 @@ return {
                 vim.cmd("TSInstallSync " .. parser)
             end
         end
-
         -- Blade-specific configuration
         local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
         parser_config.blade = {
@@ -56,7 +50,6 @@ return {
             filetype = "blade",
         }
     end,
-    
     -- Additional Blade support
     {
         "jwalton512/vim-blade",
